@@ -1,0 +1,31 @@
+# The nine facts no free API will give you.
+#
+# Leave a value blank until it's decided -- blank scores zero for everyone,
+# and the leaderboard only ever goes up as you fill these in.
+#
+# Names must match the dropdown options people picked from. If you're unsure
+# of a club's canonical spelling, run: python make_form_options.py
+
+# Late May, after the play-off final at Wembley.
+championship_playoff_winner:
+
+# PFA Players' Player of the Year (not the Premier League's own award).
+poty:
+ypoty:
+
+# Cup winners, in roughly the order they're decided.
+carabao_cup:          # March
+europa_league:        # May
+conference_league:    # May
+champions_league:     # May/June
+fa_cup:               # May
+
+# First Premier League manager to be sacked OR leave, whichever comes first.
+# Use the name exactly as it appeared in the dropdown.
+first_manager_out:
+
+# Optional. Leave blank and the top scorer is derived from FPL's goal counts.
+# Set it only if the official Golden Boot disagrees -- e.g. the dubious goals
+# panel reassigns one. A list is fine for a shared award:
+#   top_scorers: [Haaland, Salah]
+top_scorers:

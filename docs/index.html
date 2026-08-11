@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Footy Predictions — live table</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0E1A16;
+    --surface: #16241E;
+    --surface-lift: #1E302807;
+    --line: #2A3D34;
+    --chalk: #EDE9DF;
+    --muted: #7C8D86;
+    --lamp: #FFB627;
+    --good: #4FB477;
+    --bust: #E5533D;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--chalk);
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 28px 16px 80px; }
+
+  /* ---- header ---- */
+  header { border-bottom: 2px solid var(--lamp); padding-bottom: 18px; }
+
+  h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 11vw, 3.6rem);
+    line-height: 0.92;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  h1 em { font-style: normal; color: var(--lamp); display: block; }
+
+  .stamp {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  /* ---- the season so far ---- */
+  .actual { margin: 22px 0 6px; }
+  .actual h2, .board h2 {
+    font-family: var(--display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 8px;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .chip {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .chip b { color: var(--lamp); font-weight: 500; margin-right: 5px; }
+  .chip.pending { color: var(--muted); border-style: dashed; }
+
+  /* ---- leaderboard ---- */
+  .board { margin-top: 30px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 2.4rem 1fr auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 11px 8px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .row:hover, .row:focus-visible { background: #1B2C25; }
+  .row:focus-visible { outline: 2px solid var(--lamp); outline-offset: -2px; }
+
+  .rank { font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .row[data-top="1"] .rank { color: var(--lamp); }
+
+  .who { min-width: 0; }
+  .name {
+    font-family: var(--display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pts {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--lamp);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---- the 21 track: this league's one signature object ---- */
+  .track { display: flex; align-items: center; gap: 5px; margin-top: 5px; }
+  .ticks { display: flex; gap: 2px; }
+  .tick { width: 5px; height: 9px; background: var(--line); border-radius: 1px; }
+  .tick.on { background: var(--good); }
+  .track.bust .tick.on { background: var(--bust); }
+  .track-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .track.bust .track-label { color: var(--bust); }
+
+  /* ---- expanded detail ---- */
+  .detail { display: none; padding: 4px 8px 20px 3.4rem; border-bottom: 1px solid var(--line); }
+  .detail.open { display: block; }
+
+  .cats { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; margin-bottom: 14px; }
+  .cats dt { color: var(--muted); font-size: 0.8rem; }
+  .cats dd {
+    margin: 0;
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .cats dd.zero { color: var(--line); }
+  .cats dd.scored { color: var(--lamp); }
+
+  .picks { font-size: 0.78rem; color: var(--muted); }
+  .picks div { margin-bottom: 3px; }
+  .picks span { color: var(--chalk); }
+
+  .msg { padding: 40px 8px; color: var(--muted); }
+  .msg a { color: var(--lamp); }
+
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Footy<em>Predictions</em></h1>
+    <div class="stamp" id="stamp">Loading…</div>
+  </header>
+
+  <section class="actual" id="actual" hidden>
+    <h2>How it stands</h2>
+    <div class="chips" id="actual-chips"></div>
+  </section>
+
+  <section class="board">
+    <h2>The table</h2>
+    <div id="board"><p class="msg">Loading the table…</p></div>
+  </section>
+
+</div>
+
+<script>
+const TARGET = 21;
+
+const fmtStamp = iso => {
+  const d = new Date(iso);
+  return d.toLocaleString('en-GB', {
+    weekday: 'short', day: 'numeric', month: 'short',
+    hour: '2-digit', minute: '2-digit'
+  });
+};
+
+const el = (tag, cls, text) => {
+  const n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined) n.textContent = text;
+  return n;
+};
+
+function chip(label, value) {
+  const c = el('span', value ? 'chip' : 'chip pending');
+  c.appendChild(el('b', null, label));
+  c.appendChild(document.createTextNode(value || 'not yet'));
+  return c;
+}
+
+function renderActual(actual) {
+  const box = document.getElementById('actual-chips');
+  (actual.pl_top6 || []).forEach((team, i) => box.appendChild(chip(`${i + 1}`, team)));
+  (actual.pl_bottom3 || []).forEach((team, i) => box.appendChild(chip(`${18 + i}`, team)));
+  if (actual.top_scorers && actual.top_scorers.length) {
+    box.appendChild(chip('Golden boot',
+      `${actual.top_scorers.join(' & ')} (${actual.top_scorer_goals})`));
+  }
+  Object.entries(actual.decided || {}).forEach(([label, value]) => {
+    if (value) box.appendChild(chip(label, value));
+  });
+  document.getElementById('actual').hidden = false;
+}
+
+// The 21 track: 21 ticks, filled to the trio's PL goal count.
+function track(bj) {
+  const wrap = el('div', 'track' + (bj.bust ? ' bust' : ''));
+  const ticks = el('div', 'ticks');
+  for (let i = 0; i < TARGET; i++) {
+    ticks.appendChild(el('span', 'tick' + (i < Math.min(bj.total, TARGET) ? ' on' : '')));
+  }
+  wrap.appendChild(ticks);
+  wrap.appendChild(el('span', 'track-label',
+    bj.bust ? `bust on ${bj.total}` : `${bj.total} of 21`));
+  return wrap;
+}
+
+function detailFor(person) {
+  const d = el('div', 'detail');
+
+  const dl = el('dl', 'cats');
+  person.categories.forEach(cat => {
+    dl.appendChild(el('dt', null, cat.label));
+    dl.appendChild(el('dd', cat.points ? 'scored' : 'zero', String(cat.points)));
+  });
+  d.appendChild(dl);
+
+  const p = person.picks;
+  const picks = el('div', 'picks');
+  const line = (label, value) => {
+    const row = el('div');
+    row.appendChild(document.createTextNode(label + ' '));
+    row.appendChild(el('span', null, value));
+    picks.appendChild(row);
+  };
+  line('Top 6:', p.pl_top6.join(', '));
+  line('Bottom 3:', p.pl_bottom3.join(', '));
+  line('Promotion:', p.champ_top3.join(', '));
+  line('Blackjack:', person.blackjack.players
+    .map((pl, i) => `${pl} (${person.blackjack.goals[i]})`).join(', '));
+  line('Top scorer:', p.top_scorer);
+  line('Awards:', `${p.poty} / ${p.ypoty}`);
+  line('Cups:', [p.fa_cup, p.carabao_cup, p.champions_league,
+                 p.europa_league, p.conference_league].join(', '));
+  line('First out:', p.first_manager_out);
+  d.appendChild(picks);
+
+  return d;
+}
+
+function render(data) {
+  document.getElementById('stamp').textContent =
+    `Updated ${fmtStamp(data.updatedAt)} · ${data.standings.length} entries`;
+  renderActual(data.actual || {});
+
+  const board = document.getElementById('board');
+  board.innerHTML = '';
+
+  data.standings.forEach(person => {
+    const row = el('button', 'row');
+    row.type = 'button';
+    row.dataset.top = String(person.rank);
+    row.setAttribute('aria-expanded', 'false');
+
+    row.appendChild(el('span', 'rank', String(person.rank)));
+
+    const who = el('span', 'who');
+    who.appendChild(el('span', 'name', person.name));
+    who.appendChild(track(person.blackjack));
+    row.appendChild(who);
+
+    row.appendChild(el('span', 'pts', String(person.total)));
+
+    const detail = detailFor(person);
+    row.addEventListener('click', () => {
+      const open = detail.classList.toggle('open');
+      row.setAttribute('aria-expanded', String(open));
+    });
+
+    board.appendChild(row);
+    board.appendChild(detail);
+  });
+}
+
+fetch('data/leaderboard.json?t=' + Date.now())
+  .then(r => {
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  })
+  .then(render)
+  .catch(() => {
+    document.getElementById('stamp').textContent = 'No table yet';
+    document.getElementById('board').innerHTML =
+      '<p class="msg">The table appears once entries close and the first ' +
+      'build runs. Check back after the season kicks off.</p>';
+  });
+</script>
+</body>
+</html>

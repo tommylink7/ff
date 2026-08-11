@@ -1,0 +1,57 @@
+name: Update leaderboard
+
+on:
+  schedule:
+    # 06:15 UTC daily. Deliberately not on the hour -- GitHub's scheduler is
+    # busiest then and queues jobs for longer.
+    - cron: "15 6 * * *"
+  workflow_dispatch:        # lets you force a rebuild after editing manual.yml
+  push:
+    paths:
+      - "data/**"           # rebuild immediately when a cup result is entered
+      - "*.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leaderboard
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Test the scoring rules
+        run: python -m pytest test_scoring.py -q
+
+      # Keeps yesterday's raw API responses so a source outage degrades to
+      # "stale" instead of "broken".
+      - name: Restore API cache
+        uses: actions/cache@v4
+        with:
+          path: cache
+          key: api-cache-${{ github.run_id }}
+          restore-keys: api-cache-
+
+      - name: Build
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: python build.py
+
+      - name: Commit if the table changed
+        run: |
+          git config user.name "leaderboard bot"
+          git config user.email "actions@github.com"
+          git add docs/data/leaderboard.json
+          git diff --staged --quiet && echo "No change" && exit 0
+          git commit -m "Update leaderboard $(date -u +%Y-%m-%d)"
+          git push
