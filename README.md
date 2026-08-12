@@ -74,7 +74,7 @@ A flawless entry is worth **234**.
    export FOOTBALL_DATA_TOKEN=your_key
    python make_form_options.py > form_options.txt
    ```
-   This is the step that eliminates the "Van Dyke" / "Odegard" / "Mbueno"
+   This is the step that eliminates the "Van Dyke" / "Odegard" / "Mbueno" / "McSauce"
    problem. Because the options come from the same API the scorer reads, a
    pick can't fail to match.
 
