@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T03:32:06+00:00",
+  "updatedAt": "2026-08-12T03:38:32+00:00",
   "actual": {
     "pl_top6": [
       "Arsenal",
@@ -39,20 +39,20 @@
     {
       "rank": 1,
       "name": "Tommy",
-      "total": 30,
+      "total": 37,
       "exactHits": 1,
       "blackjack": {
         "players": [
           "Eze",
-          "F\u00e1bio Vieira",
-          "Bruno G."
+          "Lewis",
+          "Dalot"
         ],
         "goals": [
           7,
           0,
-          9
+          1
         ],
-        "total": 16,
+        "total": 8,
         "bust": false
       },
       "categories": [
@@ -124,7 +124,7 @@
         {
           "key": "blackjack",
           "label": "Blackjack",
-          "points": 0
+          "points": 7
         }
       ],
       "picks": {
@@ -161,21 +161,21 @@
     {
       "rank": 2,
       "name": "Declan",
-      "total": 23,
+      "total": 16,
       "exactHits": 2,
       "blackjack": {
         "players": [
           "Gy\u00f6keres",
-          "G.Jesus",
-          "Hincapie"
+          "Cunha",
+          "Wissa"
         ],
         "goals": [
           14,
-          3,
+          10,
           1
         ],
-        "total": 18,
-        "bust": false
+        "total": 25,
+        "bust": true
       },
       "categories": [
         {
@@ -246,7 +246,7 @@
         {
           "key": "blackjack",
           "label": "Blackjack",
-          "points": 7
+          "points": 0
         }
       ],
       "picks": {
@@ -288,15 +288,15 @@
       "blackjack": {
         "players": [
           "Bruno G.",
-          "Gabriel",
-          "Gy\u00f6keres"
+          "Hill",
+          "Haaland"
         ],
         "goals": [
           9,
-          3,
-          14
+          0,
+          27
         ],
-        "total": 26,
+        "total": 36,
         "bust": true
       },
       "categories": [
