@@ -24,6 +24,13 @@ fa_cup:               # May
 # Use the name exactly as it appeared in the dropdown.
 first_manager_out:
 
+# Total number of PL managers sacked or who left, counted from 21 Aug 2026.
+# Scored on the EXACT number only -- 8 points to anyone who nails it.
+# IMPORTANT: leave this blank until the season is over. It climbs all year,
+# and scoring it mid-season would make people's totals rise and fall as more
+# managers go. Fill in the final figure once, in May.
+managers_out_count:
+
 # Optional. Leave blank and the top scorer is derived from FPL's goal counts.
 # Set it only if the official Golden Boot disagrees -- e.g. the dubious goals
 # panel reassigns one. A list is fine for a shared award:

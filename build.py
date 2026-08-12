@@ -37,6 +37,7 @@ CATEGORY_LABELS = {
     "europa_league": "Europa League",
     "conference_league": "Conference League",
     "first_manager_out": "First manager out",
+    "managers_out_count": "Managers out (count)",
     "blackjack": "Blackjack",
 }
 
@@ -127,6 +128,7 @@ def main() -> int:
                 "poty": entry.poty,
                 "ypoty": entry.ypoty,
                 "first_manager_out": entry.first_manager_out,
+                "managers_out_count": entry.managers_out_count,
                 **{c: getattr(entry, c) for c in CUP_FIELDS},
             },
         })
@@ -141,7 +143,8 @@ def main() -> int:
             "top_scorer_goals": max(facts.pl_goals.values()) if facts.pl_goals else 0,
             "decided": {
                 CATEGORY_LABELS.get(k, k): getattr(facts, k)
-                for k in ("poty", "ypoty", *CUP_FIELDS, "first_manager_out")
+                for k in ("poty", "ypoty", *CUP_FIELDS,
+                          "first_manager_out", "managers_out_count")
             },
         },
         "standings": rows,

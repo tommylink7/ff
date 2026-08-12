@@ -44,8 +44,14 @@ COLUMN_RULES: list[tuple[str, tuple[str, int]]] = [
     ("champions league", ("champions_league", -1)),
     ("europa", ("europa_league", -1)),
     ("conference", ("conference_league", -1)),
+    # "number of ... managers" must precede the "manager" rule below, because
+    # "manager" is a substring of "managers" and first match wins.
+    ("number of", ("managers_out_count", -1)),
     ("manager", ("first_manager_out", -1)),
 ]
+
+# Fields whose value is a whole number, not a name.
+NUMERIC_FIELDS = {"managers_out_count"}
 
 SINGLE_FIELDS = [f for _, (f, i) in COLUMN_RULES if i == -1]
 
@@ -61,6 +67,15 @@ def _match_column(header: str) -> tuple[str, int] | None:
         if fragment in h:
             return target
     return None
+
+
+def _parse_int(value) -> int | None:
+    """First run of digits in a string, or None. '8' -> 8, 'around 9' -> 9."""
+    import re
+    if value is None:
+        return None
+    m = re.search(r"\d+", str(value))
+    return int(m.group()) if m else None
 
 
 def load_predictions(path: str | Path) -> list[Entry]:
@@ -118,6 +133,11 @@ def load_predictions(path: str | Path) -> list[Entry]:
             ):
                 fields[single] = canon(fields.get(single, ""))
 
+            # The manager count is a number, not a name. Pull the first digits
+            # out ("about 8" -> 8); leave None if they wrote nothing usable, so
+            # a blank guess simply never scores rather than crashing the build.
+            fields["managers_out_count"] = _parse_int(fields.get("managers_out_count"))
+
             entries.append(Entry(name=(row[name_col] or "").strip(), **fields))
 
     return entries
@@ -161,4 +181,5 @@ def build_facts(
         europa_league=canon(manual.get("europa_league")),
         conference_league=canon(manual.get("conference_league")),
         first_manager_out=manual.get("first_manager_out"),
+        managers_out_count=_parse_int(manual.get("managers_out_count")),
     )

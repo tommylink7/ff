@@ -262,6 +262,8 @@ function detailFor(person) {
   line('Cups:', [p.fa_cup, p.carabao_cup, p.champions_league,
                  p.europa_league, p.conference_league].join(', '));
   line('First out:', p.first_manager_out);
+  line('Managers out (count):',
+       p.managers_out_count == null ? '—' : String(p.managers_out_count));
   d.appendChild(picks);
 
   return d;

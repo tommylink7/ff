@@ -39,7 +39,8 @@ PTS_ORDER_BONUS = 10       # whole ordered run correct — STACKS with the above
 PTS_TOP_SCORER = 15
 PTS_AWARD = 10             # POTY, YPOTY
 PTS_CUP = 10               # FA, Carabao, CL, EL, ECL
-PTS_MANAGER = 8
+PTS_MANAGER = 8            # first manager out
+PTS_MANAGER_COUNT = 8      # exact number of managers out over the season
 PTS_BLACKJACK_EXACT = 15
 PTS_BLACKJACK_CLOSEST = 7
 
@@ -88,6 +89,11 @@ class SeasonFacts:
     conference_league: str | None = None
     first_manager_out: str | None = None
 
+    # Total PL managers sacked or who left, from 21 Aug 2026. This is only
+    # final at season end -- see the note in data/manual.yml about why it must
+    # stay blank until then, or live scores would rise and fall as it climbs.
+    managers_out_count: int | None = None
+
 
 @dataclass
 class Entry:
@@ -107,6 +113,7 @@ class Entry:
     conference_league: str
     first_manager_out: str
     blackjack: list[str]        # 3 players from 3 different clubs
+    managers_out_count: int | None = None   # their guess at the season total
 
 
 @dataclass
@@ -247,6 +254,16 @@ def score_entry(entry: Entry, facts: SeasonFacts) -> Breakdown:
         and entry.first_manager_out == facts.first_manager_out
     )
     b.points["first_manager_out"] = PTS_MANAGER if hit else 0
+    b.exact_hits += int(hit)
+
+    # Exact number of managers out over the season. Exact match only -- no
+    # closest-wins consolation. None (not yet final) scores zero for everyone.
+    hit = (
+        facts.managers_out_count is not None
+        and entry.managers_out_count is not None
+        and entry.managers_out_count == facts.managers_out_count
+    )
+    b.points["managers_out_count"] = PTS_MANAGER_COUNT if hit else 0
     b.exact_hits += int(hit)
 
     b.blackjack_total = blackjack_total(entry.blackjack, facts.pl_goals)
