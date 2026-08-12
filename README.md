@@ -37,15 +37,21 @@ Players' Player awards, not the Premier League's own.
 **First Premier League manager out** — 8 points. Sacked or departed, whichever
 comes first.
 
+**Number of managers out** — 8 points for guessing the exact total number of
+PL managers sacked or who leave, counted from 21 August 2026. Exact match only,
+no closest-wins. Because the count climbs all season, its value in `manual.yml`
+stays blank until May and is filled in once with the final figure — otherwise
+live scores would rise and fall as managers go.
+
 **Blackjack** — three players from three different Premier League clubs.
 Premier League goals only. Own goals don't count. A player sold in January
 keeps the goals he scored before leaving; he just stops accruing. Exactly 21
-is worth 15. If nobody hits 21, everyone tied on the closest total *without
-going over* gets 7. Bust is bust: no points at all.
+is worth 15 — and nothing otherwise. There's no consolation for the closest:
+20 scores the same as bust, which is nothing.
 
 **Ties** — most predictions exactly right, then alphabetically.
 
-A flawless entry is worth **234**.
+A flawless entry is worth **242**.
 
 ---
 
@@ -74,7 +80,7 @@ A flawless entry is worth **234**.
    export FOOTBALL_DATA_TOKEN=your_key
    python make_form_options.py > form_options.txt
    ```
-   This is the step that eliminates the "Van Dyke" / "Odegard" / "Mbueno" / "McSauce"
+   This is the step that eliminates the "Van Dyke" / "Odegard" / "Mbueno"
    problem. Because the options come from the same API the scorer reads, a
    pick can't fail to match.
 
@@ -107,7 +113,7 @@ A flawless entry is worth **234**.
 | File | What it does |
 |---|---|
 | `scoring.py` | All the rules. Pure functions, no I/O. Rule switches at the top. |
-| `test_scoring.py` | 18 tests pinning each rule so a refactor can't quietly change scoring. |
+| `test_scoring.py` | 22 tests pinning each rule so a refactor can't quietly change scoring. |
 | `sources.py` | Fetches league tables and goal counts. Caches to `cache/`. |
 | `loaders.py` | Reads the predictions CSV and `manual.yml`. |
 | `aliases.py` | Maps "Tottering" and "Man U." to canonical names. |

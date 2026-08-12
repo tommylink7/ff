@@ -25,10 +25,6 @@ CHAMPIONSHIP_GROUP = "top2_plus_playoff_winner"
 # Set False to divide 15 between the joint winners' backers.
 JOINT_TOP_SCORER_PAYS_FULL = True
 
-# Blackjack: if nobody hits 21, everyone tied at the closest total below 21
-# gets the full 7. Set False to split 7 between them.
-BLACKJACK_CLOSEST_PAYS_FULL = True
-
 # ---------------------------------------------------------------------------
 # Points
 # ---------------------------------------------------------------------------
@@ -41,8 +37,7 @@ PTS_AWARD = 10             # POTY, YPOTY
 PTS_CUP = 10               # FA, Carabao, CL, EL, ECL
 PTS_MANAGER = 8            # first manager out
 PTS_MANAGER_COUNT = 8      # exact number of managers out over the season
-PTS_BLACKJACK_EXACT = 15
-PTS_BLACKJACK_CLOSEST = 7
+PTS_BLACKJACK_EXACT = 15   # exactly 21 -- no consolation for closest
 
 BLACKJACK_TARGET = 21
 
@@ -282,30 +277,15 @@ def score_league(
     entries: list[Entry],
     facts: SeasonFacts,
 ) -> list[tuple[Entry, Breakdown]]:
-    """Score everyone, award the Blackjack consolation, and sort.
+    """Score everyone and sort.
+
+    Blackjack scores only on an exact 21 (handled per-entry in score_entry);
+    there is no closest-without-busting consolation.
 
     Sort order: points desc, then most predictions exactly right, then name
     alphabetically.
     """
     scored = [(e, score_entry(e, facts)) for e in entries]
-
-    # Blackjack consolation only applies if nobody hit 21 exactly.
-    nobody_hit_21 = all(b.blackjack_total != BLACKJACK_TARGET for _, b in scored)
-    if nobody_hit_21:
-        live = [b.blackjack_total for _, b in scored if not b.blackjack_bust]
-        if live:
-            best = max(live)
-            winners = [
-                b for _, b in scored
-                if not b.blackjack_bust and b.blackjack_total == best
-            ]
-            award = (
-                PTS_BLACKJACK_CLOSEST
-                if BLACKJACK_CLOSEST_PAYS_FULL
-                else PTS_BLACKJACK_CLOSEST // len(winners)
-            )
-            for b in winners:
-                b.points["blackjack"] = award
 
     scored.sort(key=lambda pair: (-pair[1].total, -pair[1].exact_hits, pair[0].name.lower()))
     return scored

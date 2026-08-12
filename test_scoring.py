@@ -40,6 +40,7 @@ def base_facts() -> SeasonFacts:
         europa_league="Roma",
         conference_league="Fiorentina",
         first_manager_out="Scott Parker",
+        managers_out_count=9,
     )
 
 
@@ -59,6 +60,7 @@ def entry(name="Tester", **overrides) -> Entry:
         conference_league="Fiorentina",
         first_manager_out="Scott Parker",
         blackjack=["Haaland", "Salah", "Isak"],
+        managers_out_count=9,
     )
     defaults.update(overrides)
     return Entry(**defaults)
@@ -111,7 +113,7 @@ def test_blackjack_exact_21():
     assert b.points["blackjack"] == 15
 
 
-def test_blackjack_bust_scores_nothing_even_if_closest():
+def test_blackjack_bust_scores_nothing():
     facts = base_facts()
     facts.pl_goals = {"A": 20, "B": 5, "C": 1, "D": 3}
     bust = entry("Bust", blackjack=["A", "B", "C"])       # 26
@@ -120,23 +122,23 @@ def test_blackjack_bust_scores_nothing_even_if_closest():
     by_name = {e.name: b for e, b in table}
     assert by_name["Bust"].blackjack_bust
     assert by_name["Bust"].points["blackjack"] == 0
-    assert by_name["Under"].points["blackjack"] == 7
+    # No consolation: closest-without-busting now scores nothing.
+    assert by_name["Under"].points["blackjack"] == 0
 
 
-def test_blackjack_closest_ties_both_get_seven():
+def test_blackjack_under_21_scores_nothing():
     facts = base_facts()
-    facts.pl_goals = {"A": 10, "B": 9, "C": 1, "D": 10, "E": 9, "F": 1}
-    a = entry("Anna", blackjack=["A", "B", "C"])   # 20
-    b = entry("Bob", blackjack=["D", "E", "F"])    # 20
-    table = score_league([a, b], facts)
-    assert all(br.points["blackjack"] == 7 for _, br in table)
+    facts.pl_goals = {"A": 10, "B": 9, "C": 1}   # 20, one short
+    b = score_entry(entry(blackjack=["A", "B", "C"]), facts)
+    assert b.blackjack_total == 20
+    assert b.points["blackjack"] == 0
 
 
-def test_no_consolation_when_someone_hits_21():
+def test_only_an_exact_21_scores():
     facts = base_facts()
     facts.pl_goals = {"A": 21, "Z": 20}
-    winner = entry("Winner", blackjack=["A", "nobody", "nobody2"])
-    near = entry("Near", blackjack=["Z", "nobody", "nobody2"])
+    winner = entry("Winner", blackjack=["A", "nobody", "nobody2"])   # 21
+    near = entry("Near", blackjack=["Z", "nobody", "nobody2"])       # 20
     table = score_league([winner, near], facts)
     by_name = {e.name: br for e, br in table}
     assert by_name["Winner"].points["blackjack"] == 15
@@ -164,6 +166,7 @@ WRONG = dict(
     europa_league="Nobody",
     conference_league="Nobody",
     first_manager_out="Nobody",
+    managers_out_count=999,
     blackjack=["x", "y", "z"],
 )
 
@@ -233,7 +236,8 @@ def test_perfect_entry_total():
         + 15  # top scorer
         + 10 + 10          # poty, ypoty
         + 10 * 5           # five cups
-        + 8                # manager
+        + 8                # first manager out
+        + 8                # managers-out count exact
         + 15               # blackjack 21
     )
     assert b.total == expected
@@ -272,3 +276,30 @@ def test_championship_undecided_playoff_blocks_order_bonus():
     facts.championship_playoff_winner = "Coventry"  # it is now late May
     after = score_entry(entry(champ_top3=["Ipswich", "Southampton", "Coventry"]), facts)
     assert after.points["champ_top3"] > b.points["champ_top3"], "score must only rise"
+
+
+# --- managers-out count (exact number only) --------------------------------
+
+def test_manager_count_exact_scores_eight():
+    facts = base_facts()
+    assert score_entry(entry(managers_out_count=9), facts).points["managers_out_count"] == 8
+
+
+def test_manager_count_wrong_scores_zero():
+    facts = base_facts()
+    assert score_entry(entry(managers_out_count=7), facts).points["managers_out_count"] == 0
+    # off by one is still zero -- exact only, no closest-wins
+    assert score_entry(entry(managers_out_count=10), facts).points["managers_out_count"] == 0
+
+
+def test_manager_count_undecided_scores_zero_for_everyone():
+    facts = base_facts()
+    facts.managers_out_count = None  # season not over
+    assert score_entry(entry(managers_out_count=9), facts).points["managers_out_count"] == 0
+
+
+def test_manager_count_blank_guess_never_matches():
+    facts = base_facts()
+    facts.managers_out_count = 0  # somehow nobody left
+    # a blank guess parses to None and must not match a real 0
+    assert score_entry(entry(managers_out_count=None), facts).points["managers_out_count"] == 0
