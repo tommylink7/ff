@@ -78,6 +78,26 @@ def _parse_int(value) -> int | None:
     return int(m.group()) if m else None
 
 
+def _player_name(value: str) -> str:
+    """'Eze - Arsenal' -> 'Eze'. The club is a readability suffix in the
+    dropdown; the scorer matches on the FPL name, which is what's before the
+    ' - '. Names with a real hyphen (Lewis-Skelly) are safe because the
+    separator is ' - ' with spaces, not a bare '-'.
+    """
+    return (value or "").split(" - ")[0].strip()
+
+
+def _manager_name(value: str) -> str:
+    """'Coventry City — Frank Lampard' -> 'Frank Lampard'. Club comes first,
+    em-dash separator. If there's no separator, return it unchanged.
+    """
+    value = (value or "").strip()
+    for sep in (" — ", " – ", " - "):
+        if sep in value:
+            return value.split(sep, 1)[1].strip()
+    return value
+
+
 def load_predictions(path: str | Path) -> list[Entry]:
     """Read the frozen predictions CSV into Entry objects.
 
@@ -124,7 +144,16 @@ def load_predictions(path: str | Path) -> list[Entry]:
                     "question wording.\nHeaders found: " + ", ".join(headers)
                 )
 
-            # Teams get normalised; players are already canonical.
+            # Dropdown options carried the club for readability, e.g.
+            # "Eze - Arsenal" (player) and "Coventry City — Frank Lampard"
+            # (manager, club first, em-dash). Strip those so what we store
+            # matches the FPL name / the manager name you'll type in manual.yml.
+            fields["blackjack"] = [_player_name(v) for v in fields["blackjack"]]
+            for player_field in ("top_scorer", "poty", "ypoty"):
+                fields[player_field] = _player_name(fields.get(player_field, ""))
+            fields["first_manager_out"] = _manager_name(fields.get("first_manager_out", ""))
+
+            # Teams get normalised; player names are matched to the API as-is.
             for group in ("pl_top6", "pl_bottom3", "champ_top3"):
                 fields[group] = [canon(v) for v in fields[group]]
             for single in (
