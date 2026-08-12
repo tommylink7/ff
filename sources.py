@@ -85,6 +85,27 @@ def fetch_table(competition: str) -> list[str]:
     ]
 
 
+def fetch_teams(competition: str, season: int | None = None) -> list[str]:
+    """Alphabetical list of clubs in a competition for a given season.
+
+    Unlike standings, the teams endpoint accepts ?season=YYYY (the starting
+    year, so 2026 means 2026-27) and works BEFORE any match is played. That's
+    what we want for the form: pre-season, the "current" standings still hold
+    last season's clubs, but the teams list for the new season is already set
+    once the fixtures are published.
+    """
+    url = f"{FD_BASE}/competitions/{competition}/teams"
+    cache = f"teams_{competition}"
+    if season is not None:
+        url += f"?season={season}"
+        cache += f"_{season}"
+
+    data = _get_json(url, _fd_headers(), cache)
+    teams = data.get("teams", [])
+    names = [canon(t.get("shortName") or t["name"]) for t in teams]
+    return sorted(names)
+
+
 # ---------------------------------------------------------------------------
 # Fantasy Premier League
 # ---------------------------------------------------------------------------
