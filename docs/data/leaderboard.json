@@ -1,22 +1,22 @@
 {
-  "updatedAt": "2026-08-15T06:59:56+00:00",
+  "updatedAt": "2026-08-16T07:01:18+00:00",
   "actual": {
     "pl_top6": [
+      "Bournemouth",
       "Arsenal",
-      "Man City",
-      "Man United",
       "Aston Villa",
-      "Liverpool",
-      "Bournemouth"
+      "Brentford",
+      "Brighton Hove",
+      "Chelsea"
     ],
     "pl_bottom3": [
-      "West Ham",
-      "Burnley",
-      "Wolverhampton"
+      "Nottingham",
+      "Sunderland",
+      "Tottenham"
     ],
     "champ_promotion": [
-      "Southampton",
-      "Sheffield Utd",
+      "Blackburn",
+      "Wolverhampton",
       null
     ],
     "top_scorers": [
@@ -38,8 +38,8 @@
     {
       "rank": 1,
       "name": "Shady",
-      "total": 47,
-      "exactHits": 1,
+      "total": 40,
+      "exactHits": 2,
       "blackjack": {
         "players": [
           "Salah",
@@ -58,17 +58,17 @@
         {
           "key": "pl_top6",
           "label": "Premier League top 6",
-          "points": 15
+          "points": 10
         },
         {
           "key": "pl_bottom3",
           "label": "Premier League bottom 3",
-          "points": 5
+          "points": 8
         },
         {
           "key": "champ_top3",
           "label": "Championship promotion",
-          "points": 5
+          "points": 0
         },
         {
           "key": "top_scorer",
@@ -153,9 +153,589 @@
     },
     {
       "rank": 2,
-      "name": "Deano",
-      "total": 36,
+      "name": "Wivvy",
+      "total": 20,
+      "exactHits": 0,
+      "blackjack": {
+        "players": [
+          "Isak",
+          "Palmer",
+          "Wirtz"
+        ],
+        "goals": [
+          3,
+          0,
+          5
+        ],
+        "total": 8,
+        "bust": false
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 15
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 5
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 0
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 0
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Man United",
+          "Aston Villa",
+          "Liverpool",
+          "Chelsea",
+          "Man City",
+          "Arsenal"
+        ],
+        "pl_bottom3": [
+          "Sunderland",
+          "West Ham",
+          "Leeds"
+        ],
+        "champ_top3": [
+          "Ipswich",
+          "Southampton",
+          "Coventry"
+        ],
+        "top_scorer": "Wirtz",
+        "poty": "Mateta",
+        "ypoty": "Salah",
+        "first_manager_out": "D. Farke",
+        "fa_cup": "Man City",
+        "carabao_cup": "Tottenham",
+        "champions_league": "Barcelona",
+        "europa_league": "Aston Villa",
+        "conference_league": "Fiorentina"
+      }
+    },
+    {
+      "rank": 3,
+      "name": "Ginger L.",
+      "total": 18,
+      "exactHits": 1,
+      "blackjack": {
+        "players": [
+          "Schade",
+          "Mateta",
+          "Watkins"
+        ],
+        "goals": [
+          8,
+          12,
+          16
+        ],
+        "total": 36,
+        "bust": true
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 10
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 8
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 0
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 0
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Tottenham",
+          "Aston Villa",
+          "Man City",
+          "Arsenal",
+          "Brighton",
+          "Newcastle"
+        ],
+        "pl_bottom3": [
+          "West Ham",
+          "Sunderland",
+          "Wolves"
+        ],
+        "champ_top3": [
+          "Birmingham",
+          "Coventry",
+          "Southampton"
+        ],
+        "top_scorer": "Mitoma",
+        "poty": "Salah",
+        "ypoty": "Salah",
+        "first_manager_out": "D. Farke",
+        "fa_cup": "Man United",
+        "carabao_cup": "Man City",
+        "champions_league": "Barcelona",
+        "europa_league": "Roma",
+        "conference_league": "Crystal Palace"
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Clarkey",
+      "total": 16,
       "exactHits": 2,
+      "blackjack": {
+        "players": [
+          "Wirtz",
+          "Isak",
+          "Watkins"
+        ],
+        "goals": [
+          5,
+          3,
+          16
+        ],
+        "total": 24,
+        "bust": true
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 8
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 8
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 0
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 0
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Liverpool",
+          "Arsenal",
+          "Brighton",
+          "Newcastle",
+          "Tottenham",
+          "Man United"
+        ],
+        "pl_bottom3": [
+          "Wolves",
+          "Sunderland",
+          "West Ham"
+        ],
+        "champ_top3": [
+          "Ipswich",
+          "Southampton",
+          "Leicester"
+        ],
+        "top_scorer": "Saka",
+        "poty": "Mitoma",
+        "ypoty": "Saka",
+        "first_manager_out": "D. Farke",
+        "fa_cup": "Tottenham",
+        "carabao_cup": "Arsenal",
+        "champions_league": "Real Madrid",
+        "europa_league": "Aston Villa",
+        "conference_league": "Crystal Palace"
+      }
+    },
+    {
+      "rank": 5,
+      "name": "Cookey",
+      "total": 15,
+      "exactHits": 0,
+      "blackjack": {
+        "players": [
+          "Palmer",
+          "Schade",
+          "Bowen"
+        ],
+        "goals": [
+          0,
+          8,
+          0
+        ],
+        "total": 8,
+        "bust": false
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 10
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 5
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 0
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 0
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Aston Villa",
+          "Chelsea",
+          "Newcastle",
+          "Man United",
+          "Brighton",
+          "Man City"
+        ],
+        "pl_bottom3": [
+          "Burnley",
+          "Nottingham Forest",
+          "Sunderland"
+        ],
+        "champ_top3": [
+          "Southampton",
+          "Coventry",
+          "Leicester"
+        ],
+        "top_scorer": "Mateta",
+        "poty": "Saka",
+        "ypoty": "Schade",
+        "first_manager_out": "Scott Parker",
+        "fa_cup": "Liverpool",
+        "carabao_cup": "Liverpool",
+        "champions_league": "Barcelona",
+        "europa_league": "Aston Villa",
+        "conference_league": "Crystal Palace"
+      }
+    },
+    {
+      "rank": 6,
+      "name": "Linky",
+      "total": 15,
+      "exactHits": 0,
+      "blackjack": {
+        "players": [
+          "Salah",
+          "Bowen",
+          "Schade"
+        ],
+        "goals": [
+          0,
+          0,
+          8
+        ],
+        "total": 8,
+        "bust": false
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 10
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 5
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 0
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 0
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Man City",
+          "Newcastle",
+          "Chelsea",
+          "Arsenal",
+          "Tottenham",
+          "Liverpool"
+        ],
+        "pl_bottom3": [
+          "Sunderland",
+          "Wolves",
+          "Nottingham Forest"
+        ],
+        "champ_top3": [
+          "Ipswich",
+          "Southampton",
+          "Coventry"
+        ],
+        "top_scorer": "Mitoma",
+        "poty": "Haaland",
+        "ypoty": "Mitoma",
+        "first_manager_out": "D. Farke",
+        "fa_cup": "Chelsea",
+        "carabao_cup": "Tottenham",
+        "champions_league": "PSG",
+        "europa_league": "Aston Villa",
+        "conference_league": "Crystal Palace"
+      }
+    },
+    {
+      "rank": 7,
+      "name": "Deano",
+      "total": 13,
+      "exactHits": 1,
       "blackjack": {
         "players": [
           "Salah",
@@ -174,12 +754,12 @@
         {
           "key": "pl_top6",
           "label": "Premier League top 6",
-          "points": 28
+          "points": 13
         },
         {
           "key": "pl_bottom3",
           "label": "Premier League bottom 3",
-          "points": 8
+          "points": 0
         },
         {
           "key": "champ_top3",
@@ -268,10 +848,10 @@
       }
     },
     {
-      "rank": 3,
+      "rank": 8,
       "name": "Spanky",
-      "total": 36,
-      "exactHits": 2,
+      "total": 13,
+      "exactHits": 1,
       "blackjack": {
         "players": [
           "Cunha",
@@ -290,17 +870,17 @@
         {
           "key": "pl_top6",
           "label": "Premier League top 6",
-          "points": 15
+          "points": 13
         },
         {
           "key": "pl_bottom3",
           "label": "Premier League bottom 3",
-          "points": 13
+          "points": 0
         },
         {
           "key": "champ_top3",
           "label": "Championship promotion",
-          "points": 8
+          "points": 0
         },
         {
           "key": "top_scorer",
@@ -384,126 +964,10 @@
       }
     },
     {
-      "rank": 4,
-      "name": "Wivvy",
-      "total": 35,
-      "exactHits": 0,
-      "blackjack": {
-        "players": [
-          "Isak",
-          "Palmer",
-          "Wirtz"
-        ],
-        "goals": [
-          3,
-          0,
-          5
-        ],
-        "total": 8,
-        "bust": false
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 25
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 5
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 5
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 0
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Man United",
-          "Aston Villa",
-          "Liverpool",
-          "Chelsea",
-          "Man City",
-          "Arsenal"
-        ],
-        "pl_bottom3": [
-          "Sunderland",
-          "West Ham",
-          "Leeds"
-        ],
-        "champ_top3": [
-          "Ipswich",
-          "Southampton",
-          "Coventry"
-        ],
-        "top_scorer": "Wirtz",
-        "poty": "Mateta",
-        "ypoty": "Salah",
-        "first_manager_out": "D. Farke",
-        "fa_cup": "Man City",
-        "carabao_cup": "Tottenham",
-        "champions_league": "Barcelona",
-        "europa_league": "Aston Villa",
-        "conference_league": "Fiorentina"
-      }
-    },
-    {
-      "rank": 5,
+      "rank": 9,
       "name": "Gilly",
-      "total": 33,
-      "exactHits": 1,
+      "total": 5,
+      "exactHits": 0,
       "blackjack": {
         "players": [
           "Bowen",
@@ -522,17 +986,17 @@
         {
           "key": "pl_top6",
           "label": "Premier League top 6",
-          "points": 20
+          "points": 5
         },
         {
           "key": "pl_bottom3",
           "label": "Premier League bottom 3",
-          "points": 5
+          "points": 0
         },
         {
           "key": "champ_top3",
           "label": "Championship promotion",
-          "points": 8
+          "points": 0
         },
         {
           "key": "top_scorer",
@@ -616,358 +1080,10 @@
       }
     },
     {
-      "rank": 6,
-      "name": "Cookey",
-      "total": 28,
-      "exactHits": 1,
-      "blackjack": {
-        "players": [
-          "Palmer",
-          "Schade",
-          "Bowen"
-        ],
-        "goals": [
-          0,
-          8,
-          0
-        ],
-        "total": 8,
-        "bust": false
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 15
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 5
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 8
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 0
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Aston Villa",
-          "Chelsea",
-          "Newcastle",
-          "Man United",
-          "Brighton",
-          "Man City"
-        ],
-        "pl_bottom3": [
-          "Burnley",
-          "Nottingham Forest",
-          "Sunderland"
-        ],
-        "champ_top3": [
-          "Southampton",
-          "Coventry",
-          "Leicester"
-        ],
-        "top_scorer": "Mateta",
-        "poty": "Saka",
-        "ypoty": "Schade",
-        "first_manager_out": "Scott Parker",
-        "fa_cup": "Liverpool",
-        "carabao_cup": "Liverpool",
-        "champions_league": "Barcelona",
-        "europa_league": "Aston Villa",
-        "conference_league": "Crystal Palace"
-      }
-    },
-    {
-      "rank": 7,
-      "name": "Ginger L.",
-      "total": 28,
-      "exactHits": 1,
-      "blackjack": {
-        "players": [
-          "Schade",
-          "Mateta",
-          "Watkins"
-        ],
-        "goals": [
-          8,
-          12,
-          16
-        ],
-        "total": 36,
-        "bust": true
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 15
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 8
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 5
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 0
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Tottenham",
-          "Aston Villa",
-          "Man City",
-          "Arsenal",
-          "Brighton",
-          "Newcastle"
-        ],
-        "pl_bottom3": [
-          "West Ham",
-          "Sunderland",
-          "Wolves"
-        ],
-        "champ_top3": [
-          "Birmingham",
-          "Coventry",
-          "Southampton"
-        ],
-        "top_scorer": "Mitoma",
-        "poty": "Salah",
-        "ypoty": "Salah",
-        "first_manager_out": "D. Farke",
-        "fa_cup": "Man United",
-        "carabao_cup": "Man City",
-        "champions_league": "Barcelona",
-        "europa_league": "Roma",
-        "conference_league": "Crystal Palace"
-      }
-    },
-    {
-      "rank": 8,
-      "name": "Clarkey",
-      "total": 25,
-      "exactHits": 0,
-      "blackjack": {
-        "players": [
-          "Wirtz",
-          "Isak",
-          "Watkins"
-        ],
-        "goals": [
-          5,
-          3,
-          16
-        ],
-        "total": 24,
-        "bust": true
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 15
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 5
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 5
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 0
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Liverpool",
-          "Arsenal",
-          "Brighton",
-          "Newcastle",
-          "Tottenham",
-          "Man United"
-        ],
-        "pl_bottom3": [
-          "Wolves",
-          "Sunderland",
-          "West Ham"
-        ],
-        "champ_top3": [
-          "Ipswich",
-          "Southampton",
-          "Leicester"
-        ],
-        "top_scorer": "Saka",
-        "poty": "Mitoma",
-        "ypoty": "Saka",
-        "first_manager_out": "D. Farke",
-        "fa_cup": "Tottenham",
-        "carabao_cup": "Arsenal",
-        "champions_league": "Real Madrid",
-        "europa_league": "Aston Villa",
-        "conference_league": "Crystal Palace"
-      }
-    },
-    {
-      "rank": 9,
+      "rank": 10,
       "name": "Jack the builder",
-      "total": 23,
-      "exactHits": 1,
+      "total": 5,
+      "exactHits": 0,
       "blackjack": {
         "players": [
           "Mitoma",
@@ -986,12 +1102,12 @@
         {
           "key": "pl_top6",
           "label": "Premier League top 6",
-          "points": 10
+          "points": 5
         },
         {
           "key": "pl_bottom3",
           "label": "Premier League bottom 3",
-          "points": 13
+          "points": 0
         },
         {
           "key": "champ_top3",
@@ -1077,122 +1193,6 @@
         "champions_league": "Real Madrid",
         "europa_league": "Roma",
         "conference_league": "Fiorentina"
-      }
-    },
-    {
-      "rank": 10,
-      "name": "Linky",
-      "total": 20,
-      "exactHits": 0,
-      "blackjack": {
-        "players": [
-          "Salah",
-          "Bowen",
-          "Schade"
-        ],
-        "goals": [
-          0,
-          0,
-          8
-        ],
-        "total": 8,
-        "bust": false
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 15
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 0
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 5
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 0
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Man City",
-          "Newcastle",
-          "Chelsea",
-          "Arsenal",
-          "Tottenham",
-          "Liverpool"
-        ],
-        "pl_bottom3": [
-          "Sunderland",
-          "Wolves",
-          "Nottingham Forest"
-        ],
-        "champ_top3": [
-          "Ipswich",
-          "Southampton",
-          "Coventry"
-        ],
-        "top_scorer": "Mitoma",
-        "poty": "Haaland",
-        "ypoty": "Mitoma",
-        "first_manager_out": "D. Farke",
-        "fa_cup": "Chelsea",
-        "carabao_cup": "Tottenham",
-        "champions_league": "PSG",
-        "europa_league": "Aston Villa",
-        "conference_league": "Crystal Palace"
       }
     }
   ]
