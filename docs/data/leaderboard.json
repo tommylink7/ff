@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-12T03:38:32+00:00",
+  "updatedAt": "2026-08-12T03:47:47+00:00",
   "actual": {
     "pl_top6": [
       "Arsenal",
@@ -39,7 +39,7 @@
     {
       "rank": 1,
       "name": "Tommy",
-      "total": 37,
+      "total": 30,
       "exactHits": 1,
       "blackjack": {
         "players": [
@@ -124,7 +124,7 @@
         {
           "key": "blackjack",
           "label": "Blackjack",
-          "points": 7
+          "points": 0
         }
       ],
       "picks": {
