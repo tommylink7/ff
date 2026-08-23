@@ -318,7 +318,5 @@ def validate_entry(entry: Entry, player_clubs: dict[str, str]) -> list[str]:
     if any(c is None for c in clubs):
         unknown = [p for p, c in zip(entry.blackjack, clubs) if c is None]
         problems.append(f"Blackjack: not a current PL player: {', '.join(unknown)}")
-    elif len(set(clubs)) != 3:
-        problems.append("Blackjack: the three players must be from three different clubs")
-
+   
     return problems
