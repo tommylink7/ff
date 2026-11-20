@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T04:41:28+00:00",
+  "updatedAt": "2026-11-20T04:45:23+00:00",
   "actual": {
     "pl_top6": [
       "Arsenal",
@@ -31,13 +31,135 @@
       "Champions League": null,
       "Europa League": null,
       "Conference League": null,
-      "First manager out": null,
+      "First manager out": "Michael Carrick",
       "Managers out (count)": null
     }
   },
   "standings": [
     {
       "rank": 1,
+      "name": "Darren Green",
+      "total": 59,
+      "exactHits": 4,
+      "blackjack": {
+        "players": [
+          "McBurnie",
+          "Saka",
+          "Maguire"
+        ],
+        "goals": [
+          2,
+          3,
+          0
+        ],
+        "total": 5,
+        "bust": false
+      },
+      "categories": [
+        {
+          "key": "pl_top6",
+          "label": "Premier League top 6",
+          "points": 23
+        },
+        {
+          "key": "pl_bottom3",
+          "label": "Premier League bottom 3",
+          "points": 0
+        },
+        {
+          "key": "champ_top3",
+          "label": "Championship promotion",
+          "points": 13
+        },
+        {
+          "key": "top_scorer",
+          "label": "Top scorer",
+          "points": 15
+        },
+        {
+          "key": "poty",
+          "label": "Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "ypoty",
+          "label": "Young Player of the Year",
+          "points": 0
+        },
+        {
+          "key": "fa_cup",
+          "label": "FA Cup",
+          "points": 0
+        },
+        {
+          "key": "carabao_cup",
+          "label": "Carabao Cup",
+          "points": 0
+        },
+        {
+          "key": "champions_league",
+          "label": "Champions League",
+          "points": 0
+        },
+        {
+          "key": "europa_league",
+          "label": "Europa League",
+          "points": 0
+        },
+        {
+          "key": "conference_league",
+          "label": "Conference League",
+          "points": 0
+        },
+        {
+          "key": "first_manager_out",
+          "label": "First manager out",
+          "points": 8
+        },
+        {
+          "key": "managers_out_count",
+          "label": "Managers out (count)",
+          "points": 0
+        },
+        {
+          "key": "blackjack",
+          "label": "Blackjack",
+          "points": 0
+        }
+      ],
+      "picks": {
+        "pl_top6": [
+          "Arsenal",
+          "Man City",
+          "Liverpool",
+          "Chelsea",
+          "Aston Villa",
+          "Man United"
+        ],
+        "pl_bottom3": [
+          "Coventry City",
+          "Ipswich Town",
+          "Hull City"
+        ],
+        "champ_top3": [
+          "West Ham",
+          "Middlesbrough",
+          "Birmingham"
+        ],
+        "top_scorer": "Haaland",
+        "poty": "Rice",
+        "ypoty": "Dowman",
+        "first_manager_out": "Michael Carrick",
+        "managers_out_count": 7,
+        "fa_cup": "Arsenal",
+        "carabao_cup": "Arsenal",
+        "champions_league": "Arsenal",
+        "europa_league": "AC Milan",
+        "conference_league": "Brighton"
+      }
+    },
+    {
+      "rank": 2,
       "name": "Socttish Jim",
       "total": 54,
       "exactHits": 4,
@@ -159,7 +281,7 @@
       }
     },
     {
-      "rank": 2,
+      "rank": 3,
       "name": "Shady",
       "total": 52,
       "exactHits": 5,
@@ -281,7 +403,7 @@
       }
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "Alex Chin",
       "total": 51,
       "exactHits": 3,
@@ -400,128 +522,6 @@
         "champions_league": "Bayern Munich",
         "europa_league": "Juventus",
         "conference_league": "Monaco"
-      }
-    },
-    {
-      "rank": 4,
-      "name": "Darren Green",
-      "total": 51,
-      "exactHits": 3,
-      "blackjack": {
-        "players": [
-          "McBurnie",
-          "Saka",
-          "Maguire"
-        ],
-        "goals": [
-          2,
-          3,
-          0
-        ],
-        "total": 5,
-        "bust": false
-      },
-      "categories": [
-        {
-          "key": "pl_top6",
-          "label": "Premier League top 6",
-          "points": 23
-        },
-        {
-          "key": "pl_bottom3",
-          "label": "Premier League bottom 3",
-          "points": 0
-        },
-        {
-          "key": "champ_top3",
-          "label": "Championship promotion",
-          "points": 13
-        },
-        {
-          "key": "top_scorer",
-          "label": "Top scorer",
-          "points": 15
-        },
-        {
-          "key": "poty",
-          "label": "Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "ypoty",
-          "label": "Young Player of the Year",
-          "points": 0
-        },
-        {
-          "key": "fa_cup",
-          "label": "FA Cup",
-          "points": 0
-        },
-        {
-          "key": "carabao_cup",
-          "label": "Carabao Cup",
-          "points": 0
-        },
-        {
-          "key": "champions_league",
-          "label": "Champions League",
-          "points": 0
-        },
-        {
-          "key": "europa_league",
-          "label": "Europa League",
-          "points": 0
-        },
-        {
-          "key": "conference_league",
-          "label": "Conference League",
-          "points": 0
-        },
-        {
-          "key": "first_manager_out",
-          "label": "First manager out",
-          "points": 0
-        },
-        {
-          "key": "managers_out_count",
-          "label": "Managers out (count)",
-          "points": 0
-        },
-        {
-          "key": "blackjack",
-          "label": "Blackjack",
-          "points": 0
-        }
-      ],
-      "picks": {
-        "pl_top6": [
-          "Arsenal",
-          "Man City",
-          "Liverpool",
-          "Chelsea",
-          "Aston Villa",
-          "Man United"
-        ],
-        "pl_bottom3": [
-          "Coventry City",
-          "Ipswich Town",
-          "Hull City"
-        ],
-        "champ_top3": [
-          "West Ham",
-          "Middlesbrough",
-          "Birmingham"
-        ],
-        "top_scorer": "Haaland",
-        "poty": "Rice",
-        "ypoty": "Dowman",
-        "first_manager_out": "Michael Carrick",
-        "managers_out_count": 7,
-        "fa_cup": "Arsenal",
-        "carabao_cup": "Arsenal",
-        "champions_league": "Arsenal",
-        "europa_league": "AC Milan",
-        "conference_league": "Brighton"
       }
     },
     {
