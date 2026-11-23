@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-11-22T14:39:16+00:00",
+  "updatedAt": "2026-11-23T18:18:21+00:00",
   "actual": {
     "pl_top6": [
       "Arsenal",
       "Brighton Hove",
       "Man City",
-      "Bournemouth",
       "Liverpool",
+      "Bournemouth",
       "Leeds United"
     ],
     "pl_bottom3": [
@@ -49,9 +49,9 @@
         "goals": [
           0,
           0,
-          1
+          2
         ],
-        "total": 1,
+        "total": 2,
         "bust": false
       },
       "categories": [
@@ -281,9 +281,9 @@
         "goals": [
           7,
           0,
-          1
+          2
         ],
-        "total": 8,
+        "total": 9,
         "bust": false
       },
       "categories": [
@@ -627,11 +627,11 @@
           "Watkins"
         ],
         "goals": [
-          1,
+          2,
           7,
           0
         ],
-        "total": 8,
+        "total": 9,
         "bust": false
       },
       "categories": [
